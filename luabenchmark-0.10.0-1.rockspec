@@ -1,9 +1,17 @@
+-- This file was automatically generated for the LuaDist project.
+
 package = "luabenchmark"
-version = "0.9.0-2"
+version = "0.10.0-1"
+-- LuaDist source
 source = {
-    url = "git://github.com/spacewander/luabenchmark",
-    tag = "0.9.0"
+  tag = "0.10.0-1",
+  url = "git://github.com/LuaDist-testing/luabenchmark.git"
 }
+-- Original source
+-- source = {
+--     url = "git://github.com/spacewander/luabenchmark",
+--     tag = "0.10.0"
+-- }
 description = {
     summary = "A tiny benchmark library",
     detailed = [[
@@ -18,12 +26,13 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
+        benchmark = "benchmark.lua",
         benchmarklib = {
             sources = {"benchmarklib.c"},
         }
     },
     -- Override default build options (per platform)
     platforms = {
-        unix = { modules = { benchmarklib = { libraries = {"rt"} } } }
+        linux = { modules = { benchmarklib = { libraries = {"rt"} } } }
     },
 }
